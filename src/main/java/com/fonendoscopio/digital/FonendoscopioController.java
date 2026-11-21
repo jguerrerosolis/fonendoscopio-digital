@@ -25,6 +25,6 @@ public class FonendoscopioController {
 				List.of("Cabezal acústico", "Banda torácica", "Acelerómetro"),
 				"Bluetooth / Wi-Fi",
 				5,
-				48);
+				12);
 	}
 }
