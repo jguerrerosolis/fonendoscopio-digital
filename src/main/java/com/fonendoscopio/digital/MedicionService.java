@@ -16,7 +16,7 @@ public class MedicionService {
     }
 
     public Medicion getMedicion(Long id) {
-        return medicionRepository.getReferenceById(id);
+        return medicionRepository.findById(id).orElse(null);
     }
 
     // Sirve para crear una medicion nueva (sin id) o actualizar una existente (con id)
@@ -25,6 +25,6 @@ public class MedicionService {
     }
 
     public void deleteMedicion(Long id) {
-        medicionRepository.delete(medicionRepository.getReferenceById(id));
+        medicionRepository.delete(medicionRepository.findById(id).orElseThrow());
     }
 }
