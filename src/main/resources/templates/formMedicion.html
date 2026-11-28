@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Medición</title>
+    <link rel="stylesheet" th:href="@{/fonendoscopio.css}">
+</head>
+<body>
+    <h1 th:text="${medicion.id == null} ? 'Nueva medición' : 'Editar medición'"></h1>
+    <form method="post" th:action="@{/web/mediciones/guardar}" th:object="${medicion}">
+        <input type="hidden" th:field="*{id}">
+        <p>
+            <label>Paciente<br>
+                <input type="text" th:field="*{paciente}" required>
+            </label>
+        </p>
+        <p>
+            <label>Perfil de uso<br>
+                <select th:field="*{perfilUso}">
+                    <option th:each="p : ${perfiles}" th:value="${p}" th:text="${p}"></option>
+                </select>
+            </label>
+        </p>
+        <p>
+            <label>Frecuencia cardiaca (ppm)<br>
+                <input type="number" th:field="*{frecuenciaCardiaca}" min="0" required>
+            </label>
+        </p>
+        <p>
+            <label>Expansión torácica<br>
+                <input type="number" step="any" th:field="*{expansionToracica}" required>
+            </label>
+        </p>
+        <p>
+            <label>Calidad técnica<br>
+                <select th:field="*{calidadTecnica}">
+                    <option th:each="c : ${calidades}" th:value="${c}" th:text="${c}"></option>
+                </select>
+            </label>
+        </p>
+        <button type="submit" class="boton">Guardar</button>
+        <a class="boton" th:href="@{/web/mediciones}">Cancelar</a>
+    </form>
+</body>
+</html>
