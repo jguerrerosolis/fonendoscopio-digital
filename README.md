@@ -10,9 +10,10 @@ Repositorio para la práctica de la asignatura de desarrollo web con Spring Boot
 ## Qué hace el proyecto
 Es una aplicación web básica para gestionar mediciones de un fonendoscopio digital. Permite guardar los datos de los pacientes (frecuencia cardíaca, calidad técnica, expansión torácica, etc.) usando una base de datos H2 en archivo y verlos a través de una interfaz web con Thymeleaf.
 
+
 ## Cómo usar la aplicación
 1. Clona el repositorio en tu ordenador.
-2. Abrir el proyecto en tu editor (por ej: VS Code).
+2. Abrir el proyecto en tu editor.
 3. Ejecuta la clase principal `FonendoscopioDigitalApplication.java` como aplicación de Spring Boot.
 4. Entra en el navegador en: `http://localhost:8080/`
 
