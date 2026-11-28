@@ -1,0 +1,7 @@
+body { font-family: sans-serif; margin: 2rem; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #ccc; padding: .5rem; text-align: left; }
+th { background: #eef; }
+.inline { display: inline; }
+.boton { padding: .3rem .8rem; margin-right: .3rem; cursor: pointer; }
+.peligro { background: #fdd; }

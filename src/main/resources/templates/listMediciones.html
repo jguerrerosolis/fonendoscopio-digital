@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mediciones</title>
+    <link rel="stylesheet" th:href="@{/fonendoscopio.css}">
+</head>
+<body>
+    <h1>Mediciones del fonendoscopio digital</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th><th>Paciente</th><th>Perfil</th>
+                <th>Frec. cardiaca (ppm)</th><th>Expansión torácica</th>
+                <th>Calidad</th><th>Operaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="m : ${mediciones}">
+                <td th:text="${m.id}"></td>
+                <td th:text="${m.paciente}"></td>
+                <td th:text="${m.perfilUso}"></td>
+                <td th:text="${m.frecuenciaCardiaca}"></td>
+                <td th:text="${m.expansionToracica}"></td>
+                <td th:text="${m.calidadTecnica}"></td>
+                <td>
+                    <!--/* TODO: este botón no funcionará hasta que exista formMedicion.html (otra PR) */-->
+                    <a class="boton" th:href="@{/web/mediciones/{id}/editar(id=${m.id})}">Editar</a>
+                    <form class="inline" method="post"
+                          th:action="@{/web/mediciones/{id}/eliminar(id=${m.id})}">
+                        <button type="submit" class="boton peligro">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(mediciones)}">
+                <td colspan="7">No hay mediciones registradas.</td>
+            </tr>
+        </tbody>
+    </table>
+    <!--/* TODO: este botón no funcionará hasta que exista formMedicion.html (otra PR) */-->
+    <p><a class="boton" th:href="@{/web/mediciones/nueva}">Nueva medición</a></p>  
+</body>
+</html>
